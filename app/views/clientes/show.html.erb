@@ -1,0 +1,24 @@
+<% title "Cliente" %>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @cliente.nome %>
+</p>
+<p>
+  <strong>Endereco:</strong>
+  <%= @cliente.endereco %>
+</p>
+<p>
+  <strong>Telefone:</strong>
+  <%= @cliente.telefone %>
+</p>
+<p>
+  <strong>Celular:</strong>
+  <%= @cliente.celular %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_cliente_path(@cliente) %> |
+  <%= link_to "Destroy", @cliente, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", clientes_path %>
+</p>
