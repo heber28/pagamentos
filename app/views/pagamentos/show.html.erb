@@ -4,16 +4,16 @@
 
 <p>
   <strong>Data:</strong>
-  <%= @pagamento.data %>
+  <%= l @pagamento.data %>
 </p>
 
 <p>
   <strong>Valor:</strong>
-  <%= @pagamento.valor %>
+  <%= number_to_currency @pagamento.valor %>
 </p>
 
 <p>
   <%= link_to "Editar", edit_cliente_pagamento_path(@cliente, @pagamento) %> |
-  <%= link_to "Excluir", [@cliente,pagamento], :confirm => 'Tem certeza?', :method => :delete %> |
-  <%= link_to "Ver Todos Pagamentos", pagamentos_path %>
+  <%= link_to "Excluir", [@cliente, @pagamento], :confirm => 'Tem certeza?', :method => :delete %> |
+  <%= link_to "Ver Todos Pagamentos", cliente_pagamentos_path(@cliente) %>
 </p>

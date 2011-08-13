@@ -1,5 +1,12 @@
 <% title "Clientes" %>
 
+<% form_tag clientes_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Procurar", :name => nil %>
+  </p>
+<% end %>
+
 <ul>
   <% for cliente in @clientes %>
     <li>
