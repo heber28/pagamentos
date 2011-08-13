@@ -1,0 +1,24 @@
+<% title "Pagamentos" %>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @cliente.nome%>
+</p>
+<ul>
+  <% @cliente.pagamentos.each do |pagamento| %>
+    <li>
+      <div class="lista">
+        <%= l pagamento.data %>
+        <%= number_to_currency pagamento.valor %>
+      </div>
+      <%= link_to 'Ver', cliente_pagamento_path(@cliente, pagamento) %>
+      <%= link_to 'Editar', edit_cliente_pagamento_path(@cliente, pagamento) %>
+      <%= link_to 'Excluir', [@cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
+    </li>
+    <br />
+  <% end %>
+</ul>
+
+<%= link_to 'Novo Pagamento', new_cliente_pagamento_path(@cliente) %> |
+<%= link_to 'Ver Cliente', cliente_path(@cliente) %> |
+<%= link_to 'Ver Todos Clientes', clientes_path %>

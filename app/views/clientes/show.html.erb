@@ -18,7 +18,8 @@
 </p>
 
 <p>
-  <%= link_to "Edit", edit_cliente_path(@cliente) %> |
-  <%= link_to "Destroy", @cliente, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", clientes_path %>
+  <%= link_to "Editar", edit_cliente_path(@cliente) %> |
+  <%= link_to "Excluir", @cliente, :confirm => 'Tem certeza?', :method => :delete %> |
+  <%= link_to "Ver Todos Clientes", clientes_path %> |
+  <%= link_to "Ver Pagamentos", cliente_pagamentos_path(@cliente) %>
 </p>

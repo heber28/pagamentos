@@ -1,0 +1,18 @@
+<%= form_for [@cliente, @pagamento] do |f| %>
+  <% f.error_messages %>
+
+  <div class="field">
+    <%= f.label :data %><br />
+    <%= f.date_select :data %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <br />
+  <br />
+<% end %>

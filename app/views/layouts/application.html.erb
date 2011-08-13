@@ -8,13 +8,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-<ul id="menu">
-   <li><a href="http://google.com" target="_self">novo cliente</a></li>
-   <li><a href="http://yahoo.com" target="_self">procurar cliente</a></li>
-   <li><a href="http://bing.com" target="_self">novo pagamento</a></li>
-   <li><a href="http://lycos.com" target="_self">procurar pagamento</a></li>
-</ul>
-    <div id="container">
+      <div id="container">      
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>

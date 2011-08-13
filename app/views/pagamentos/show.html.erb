@@ -1,0 +1,19 @@
+<% title "Pagamento" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @pagamento.data %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @pagamento.valor %>
+</p>
+
+<p>
+  <%= link_to "Editar", edit_cliente_pagamento_path(@cliente, @pagamento) %> |
+  <%= link_to "Excluir", [@cliente,pagamento], :confirm => 'Tem certeza?', :method => :delete %> |
+  <%= link_to "Ver Todos Pagamentos", pagamentos_path %>
+</p>

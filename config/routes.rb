@@ -1,5 +1,12 @@
 App::Application.routes.draw do
-  resources :clientes
+
+  resources :clientes do
+    resources :pagamentos
+  end
+
+  #resources :clientes, :has_many => :pagamentos
+
+  #resources :clientes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
