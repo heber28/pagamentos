@@ -10,10 +10,9 @@
       <div class="lista">
         <%= l pagamento.data %>
         <%= number_to_currency pagamento.valor %>
+      <%= link_to image_tag("edit.png"), edit_cliente_pagamento_path(@cliente, pagamento) %>
+      <%= link_to image_tag("delete.png"), [@cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
       </div>
-      <%= link_to 'Ver', cliente_pagamento_path(@cliente, pagamento) %>
-      <%= link_to 'Editar', edit_cliente_pagamento_path(@cliente, pagamento) %>
-      <%= link_to 'Excluir', [@cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
     </li>
     <br />
   <% end %>

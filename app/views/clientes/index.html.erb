@@ -1,6 +1,6 @@
 <% title "Clientes" %>
 
-<% form_tag clientes_path, :method => 'get' do %>
+<%= form_tag clientes_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Procurar", :name => nil %>
@@ -13,10 +13,9 @@
       <div class="lista">
         <%= cliente.nome %>
       </div>
-      <%= link_to "Ver", cliente %>
-      <%= link_to "Editar", edit_cliente_path(cliente) %>
-      <%= link_to "Excluir", cliente, :confirm => 'Tem certeza?', :method => :delete %>
-      <%= link_to "Pagamentos", cliente_pagamentos_path(cliente) %>
+      <%= link_to image_tag("profile.png"), cliente %>
+      <%= link_to image_tag("trash.png"), cliente, :confirm => 'Tem certeza?', :method => :delete %> 
+      <%= link_to image_tag("visa.png"), cliente_pagamentos_path(cliente) %>
     </li>
     <br />
   <% end %>
