@@ -1,8 +1,9 @@
 <% title "Pagamentos" %>
 
 <p>
-  <strong>Cliente:</strong>
-  <%= @cliente.nome%>
+  <strong>
+  <%= @cliente.nome %>
+  </strong>
 </p>
 <ul>
   <% @cliente.pagamentos.each do |pagamento| %>
