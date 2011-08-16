@@ -4,6 +4,10 @@ App::Application.routes.draw do
     resources :pagamentos
   end
 
+  match "/list" => "clientes#list"
+
+  match "/search" => "pagamentos#search"
+
   #resources :clientes, :has_many => :pagamentos
 
   #resources :clientes

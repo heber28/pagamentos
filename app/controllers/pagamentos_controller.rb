@@ -87,4 +87,16 @@ class PagamentosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def search
+    if params[:data].nil?
+      dt = Time.now
+    else      
+      dt = DateTime.strptime(params[:data], "%d/%m/%Y").to_time
+    end
+    @pagamentos = Pagamento.dia(dt)
+  rescue
+    dt = Time.now
+  end
+
 end

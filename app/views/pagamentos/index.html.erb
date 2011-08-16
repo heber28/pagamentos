@@ -2,23 +2,21 @@
 
 <p>
   <strong>
-  <%= @cliente.nome %>
+    <%= @cliente.nome %>
   </strong>
 </p>
-<ul>
+<table>
   <% @cliente.pagamentos.each do |pagamento| %>
-    <li>
-      <div class="lista">
-        <%= l pagamento.data %>
-        <%= number_to_currency pagamento.valor %>
-      <%= link_to image_tag("edit.png"), edit_cliente_pagamento_path(@cliente, pagamento) %>
-      <%= link_to image_tag("delete.png"), [@cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
-      </div>
-    </li>
-    <br />
+    <tr>
+      <td><%= l pagamento.data %></td>
+      <td ALIGN="right"><%= number_to_currency pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td>
+        <%= link_to image_tag("edit.png"), edit_cliente_pagamento_path(@cliente, pagamento) %>
+        <%= link_to image_tag("delete.png"), [@cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
+      </td>
+    </tr>
   <% end %>
-</ul>
-
+</table>
+<br />
 <%= link_to 'Novo Pagamento', new_cliente_pagamento_path(@cliente) %> |
-<%= link_to 'Ver Cliente', cliente_path(@cliente) %> |
-<%= link_to 'Ver Todos Clientes', clientes_path %>
+<%= link_to 'Ver Clientes', clientes_path %>

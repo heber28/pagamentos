@@ -38,4 +38,8 @@ class ClientesController < ApplicationController
     @cliente.destroy
     redirect_to clientes_url, :notice => "O cliente foi excluido com sucesso."
   end
+
+  def list
+    @clientes = Cliente.all
+  end
 end

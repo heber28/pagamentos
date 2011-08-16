@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'nifty-generators'
 
+gem "jquery-rails"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

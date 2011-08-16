@@ -1,0 +1,23 @@
+<% title "Pagamentos por Dia" %>
+
+<%= form_tag '/search', :method => 'get' do %>
+  <p>
+    <%= text_field_tag :data, params[:search] %>
+    <%= submit_tag "Procurar", :name => nil %>
+  </p>
+<% end %>
+
+<table>
+  <% @pagamentos.each do |pagamento| %>
+    <tr>
+      <td><%= l pagamento.data %></td>
+      <td ALIGN="right"><%= number_to_currency pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td>
+        <%= link_to image_tag("edit.png"), edit_cliente_pagamento_path(pagamento.cliente, pagamento) %>
+        <%= link_to image_tag("delete.png"), [pagamento.cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<br />
+<%= link_to "Ver Pagamentos", '/list' %>
