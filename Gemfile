@@ -11,6 +11,8 @@ gem 'nifty-generators'
 
 gem "jquery-rails"
 
+gem "bcrypt-ruby"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -34,3 +36,4 @@ gem "jquery-rails"
 #   gem 'webrat'
 # end
 gem "mocha", :group => :test
+gem "bcrypt-ruby", :require => "bcrypt"
