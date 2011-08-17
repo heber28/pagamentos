@@ -47,7 +47,7 @@ class PagamentosController < ApplicationController
   def create
     @cliente = Cliente.find(params[:cliente_id])
     @pagamento = @cliente.pagamentos.build(params[:pagamento])
-
+    @pagamento.user_id = current_user.id;
     respond_to do |format|
       if @pagamento.save
         format.html { redirect_to(cliente_pagamentos_path(@cliente), :notice => 'Pagamento foi criado com sucesso.') }
@@ -64,7 +64,7 @@ class PagamentosController < ApplicationController
   def update
     @cliente = Cliente.find(params[:cliente_id])
     @pagamento = @cliente.pagamentos.find(params[:id])
-
+    @pagamento.user_id = current_user.id;
     respond_to do |format|
       if @pagamento.update_attributes(params[:pagamento])
         format.html { redirect_to(cliente_pagamentos_path(@cliente), :notice => 'Pagamento foi atualizado com sucesso.') }
@@ -90,13 +90,12 @@ class PagamentosController < ApplicationController
 
   def search
     if params[:data].nil?
-      dt = Time.now
+      d = Time.now
     else      
-      dt = DateTime.strptime(params[:data], "%d/%m/%Y").to_time
+      d = DateTime.strptime(params[:data], "%d/%m/%Y").to_time
     end
-    @pagamentos = Pagamento.dia(dt)
+    @pagamentos = Pagamento.dia(current_user.id, d)
   rescue
-    dt = Time.now
   end
 
 end

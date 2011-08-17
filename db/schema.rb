@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20110816192821) do
     t.string   "endereco"
     t.string   "telefone"
     t.string   "celular"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20110816192821) do
     t.date     "data"
     t.decimal  "valor",      :precision => 8, :scale => 2
     t.integer  "cliente_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

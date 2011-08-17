@@ -5,6 +5,7 @@ class CreateClientes < ActiveRecord::Migration
       t.string :endereco
       t.string :telefone
       t.string :celular
+      t.integer :user_id
       t.timestamps
     end
   end

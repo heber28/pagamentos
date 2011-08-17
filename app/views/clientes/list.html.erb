@@ -16,14 +16,14 @@
     <tr>
       <td><%= cliente.nome + ' ' %></td>
       <td><%= link_to image_tag("paid.png"), cliente_pagamentos_path(cliente)%></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now - 7.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now - 6.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now - 5.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now - 4.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now - 3.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now - 2.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now - 1.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(cliente.id, Time.now), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 7.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 6.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 5.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 4.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 3.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 2.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 1.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
     </tr>
   <% end %>
 </table>

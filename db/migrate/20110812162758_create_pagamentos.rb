@@ -4,7 +4,7 @@ class CreatePagamentos < ActiveRecord::Migration
       t.date :data
       t.decimal :valor, :precision => 8, :scale => 2
       t.integer :cliente_id
-
+      t.integer :user_id
       t.timestamps
     end
   end

@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
   def index
-    @clientes = Cliente.search(params[:search])
+    @clientes = Cliente.search(params[:search], current_user.id)
   end
 
   def show
@@ -13,6 +13,7 @@ class ClientesController < ApplicationController
 
   def create
     @cliente = Cliente.new(params[:cliente])
+    @cliente.user_id = current_user.id
     if @cliente.save
       redirect_to @cliente, :notice => "O cliente foi criado com sucesso."
     else
@@ -26,6 +27,7 @@ class ClientesController < ApplicationController
 
   def update
     @cliente = Cliente.find(params[:id])
+    @cliente.user_id = current_user.id
     if @cliente.update_attributes(params[:cliente])
       redirect_to @cliente, :notice  => "O cliente foi atualizado com sucesso."
     else
@@ -40,6 +42,6 @@ class ClientesController < ApplicationController
   end
 
   def list
-    @clientes = Cliente.all
+    @clientes = Cliente.search('', current_user.id)
   end
 end
