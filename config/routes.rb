@@ -16,6 +16,8 @@ App::Application.routes.draw do
     resources :pagamentos
   end
 
+  resources :password_resets
+
   match "/list" => "clientes#list"
 
   match "/search" => "pagamentos#search"

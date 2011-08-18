@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to clientes_url, :notice => "Thank you for signing up! You are now logged in."
+      redirect_to clientes_url, :notice => "Obrigado por se cadastrar!"
     else
       render :action => 'new'
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
-      redirect_to clientes_url, :notice => "Your profile has been updated."
+      redirect_to clientes_url, :notice => "O seu cadastro foi atualizado"
     else
       render :action => 'edit'
     end

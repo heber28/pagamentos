@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :login_required, :only => [:new, :create]
+  before_filter :login_required, :except => [:new, :create]
   
   def new
   end
@@ -7,16 +7,22 @@ class SessionsController < ApplicationController
   def create
     user = User.authenticate(params[:login], params[:password])
     if user
-      session[:user_id] = user.id
-      redirect_to_target_or_default clientes_url, :notice => "Logged in successfully."
+      if params[:remember_me]
+        cookies.permanent[:auth_token] = user.auth_token
+      else
+        cookies[:auth_token] = user.auth_token
+      end
+      ##session[:user_id] = user.id
+      redirect_to_target_or_default clientes_url, :notice => "Autenticado com sucesso"
     else
-      flash.now[:alert] = "Invalid login or password."
+      flash.now[:alert] = "Usuario ou senha incorreta"
       render :action => 'new'
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_url, :notice => "You have been logged out."
+    ##session[:user_id] = nil
+    cookies.delete(:auth_token)
+    redirect_to root_url, :notice => "Voce saiu do sistema"
   end
 end

@@ -21,5 +21,18 @@ App::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.smtp_settings = {
+    :address    => "smtps.sercomtel.com.br",
+    :port       => 587,
+    :user_name  => "railsapp@sercomtel.com.br",
+    :password   => "1123456",
+    :enable_starttls_auto => true
+  }
+  
 end
 

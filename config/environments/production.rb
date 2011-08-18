@@ -46,4 +46,17 @@ App::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+
+  config.action_mailer.raise_delivery_errors = false
+
+  config.action_mailer.smtp_settings = {
+    :address    => "smtps.sercomtel.com.br",
+    :port       => 587,
+    :user_name  => "railsapp@sercomtel.com.br",
+    :password   => "1123456",
+    :enable_starttls_auto => true
+  }
+
 end

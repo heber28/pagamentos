@@ -2,7 +2,7 @@
 
 <%= form_tag '/search', :method => 'get' do %>
   <p>
-    <%= text_field_tag :data, params[:search] %>
+    <%= text_field_tag :datepicker, params[:search] %>
     <%= submit_tag "Procurar", :name => nil %>
   </p>
 <% end %>

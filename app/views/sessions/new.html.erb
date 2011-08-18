@@ -1,15 +1,22 @@
-<% title "Log in" %>
+<% title "Entrar" %>
 
-<p>Don't have an account? <%= link_to "Sign up!", signup_path %></p>
+<p>N&atilde;o tem uma conta ainda? <%= link_to "Cadastre-se!", signup_path %></p>
 
 <%= form_tag sessions_path do %>
   <p>
-    <%= label_tag :login, "Username or Email Address" %><br />
+    <%= label_tag :login, "" %>Nome do Usu&aacute;rio ou Email<br />
     <%= text_field_tag :login, params[:login] %>
   </p>
   <p>
-    <%= label_tag :password %><br />
+    <%= label_tag :password, "Senha" %><br />
     <%= password_field_tag :password %>
   </p>
-  <p><%= submit_tag "Log in" %></p>
+  <p><%= submit_tag "Entrar" %></p>
+
+  <p><%= link_to "Esqueceu a senha?", new_password_reset_path %></p>
+  <div class="field">
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+    <%= label_tag :remember_me, "Lembre-me" %>
+  </div>
+
 <% end %>

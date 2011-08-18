@@ -67,7 +67,7 @@ class PagamentosController < ApplicationController
     @pagamento.user_id = current_user.id;
     respond_to do |format|
       if @pagamento.update_attributes(params[:pagamento])
-        format.html { redirect_to(cliente_pagamentos_path(@cliente), :notice => 'Pagamento foi atualizado com sucesso.') }
+        format.html { redirect_to(cliente_pagamentos_path(@cliente), :notice => 'Pagamento foi atualizado com sucesso') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -6,4 +6,6 @@ jQuery(function($) {
     $('#data').mask('99/99/9999');
     $('#cliente_telefone').mask('(99) 9999-9999');
     $('#cliente_celular').mask('(99) 9999-9999');
+    $.datepicker.setDefaults($.datepicker.regional['pt-BR']);
+    $( "#datepicker" ).datepicker();
 });
