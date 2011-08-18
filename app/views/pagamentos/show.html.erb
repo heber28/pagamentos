@@ -15,5 +15,6 @@
 <p>
   <%= link_to "Editar", edit_cliente_pagamento_path(@cliente, @pagamento) %> |
   <%= link_to "Excluir", [@cliente, @pagamento], :confirm => 'Tem certeza?', :method => :delete %> |
-  <%= link_to "Ver Pagamentos", cliente_pagamentos_path(@cliente) %>
+  <%= link_to "Recibo", receipt_path(:id => @pagamento) %> |
+  <%= link_to "Voltar", cliente_pagamentos_path(@cliente) %> 
 </p>

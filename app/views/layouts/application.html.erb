@@ -3,6 +3,7 @@
   <head>
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
     <%= stylesheet_link_tag "application" %>
+    <%= stylesheet_link_tag "jquery-ui-1.8.15.custom.css" %>
     <%= javascript_include_tag :defaults %>
     <%= javascript_include_tag 'jquery.maskedinput-1.3.min.js' %>
     <%= javascript_include_tag 'jquery-ui-1.8.15.custom.min' %>

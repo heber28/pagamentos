@@ -1,6 +1,7 @@
 class PagamentosController < ApplicationController
   # GET /pagamentos
   # GET /pagamentos.xml
+  layout 'application', :except => :receipt
   def index
     @cliente = Cliente.find(params[:cliente_id])
     @pagamentos = @cliente.pagamentos.all    
@@ -39,7 +40,7 @@ class PagamentosController < ApplicationController
   # GET /pagamentos/1/edit
   def edit
     @cliente = Cliente.find(params[:cliente_id])
-    @pagamento = @cliente.pagamentos.find(params[:id])
+    @pagamento = @cliente.pagamentos.find(params[:id])    
   end
 
   # POST /pagamentos
@@ -50,7 +51,7 @@ class PagamentosController < ApplicationController
     @pagamento.user_id = current_user.id;
     respond_to do |format|
       if @pagamento.save
-        format.html { redirect_to(cliente_pagamentos_path(@cliente), :notice => 'Pagamento foi criado com sucesso.') }
+        format.html { redirect_to(cliente_pagamento_path(@cliente, @pagamento), :notice => 'Pagamento foi criado com sucesso.') }
         format.xml  { render :xml => @pagamento, :status => :created, :location => @pagamento }
       else
         format.html { render :action => "new" }
@@ -89,13 +90,17 @@ class PagamentosController < ApplicationController
   end
 
   def search
-    if params[:data].nil?
+    if params[:datepicker].nil?
       d = Time.now
     else      
-      d = DateTime.strptime(params[:data], "%d/%m/%Y").to_time
+      d = DateTime.strptime(params[:datepicker], "%d/%m/%Y").to_time
     end
     @pagamentos = Pagamento.dia(current_user.id, d)
   rescue
+  end
+
+  def receipt
+    @pagamento = Pagamento.find(params[:id])    
   end
 
 end

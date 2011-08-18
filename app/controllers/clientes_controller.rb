@@ -43,5 +43,10 @@ class ClientesController < ApplicationController
 
   def list
     @clientes = Cliente.search('', current_user.id)
+    if params[:data].nil?
+      @data = Time.now
+    else
+      @data = params[:data]
+    end    
   end
 end

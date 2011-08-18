@@ -2,7 +2,7 @@
 
 <%= form_tag '/search', :method => 'get' do %>
   <p>
-    <%= text_field_tag :datepicker, params[:search] %>
+    <%= text_field_tag :datepicker, params[:datepicker] %>
     <%= submit_tag "Procurar", :name => nil %>
   </p>
 <% end %>
@@ -10,14 +10,11 @@
 <table>
   <% @pagamentos.each do |pagamento| %>
     <tr>
-      <td><%= l pagamento.data %></td>
+      <td><%= pagamento.cliente.nome %>&nbsp;</td>
+      <td><%= l pagamento.data %>&nbsp;&nbsp;&nbsp;</td>
       <td ALIGN="right"><%= number_to_currency pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td>
-        <%= link_to image_tag("edit.png"), edit_cliente_pagamento_path(pagamento.cliente, pagamento) %>
-        <%= link_to image_tag("delete.png"), [pagamento.cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
-      </td>
     </tr>
   <% end %>
 </table>
 <br />
-<%= link_to "Ver Pagamentos", '/list' %>
+<%= link_to "Voltar", list_path %>

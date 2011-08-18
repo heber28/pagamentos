@@ -1,31 +1,29 @@
 <% title "Pagamentos"%>
+<% data = @data.to_datetime %>
 <table>
   <tr>
-    <th></th>
-    <th></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now - 7.month, :format => :only_month %></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now - 6.month, :format => :only_month %></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now - 5.month, :format => :only_month %></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now - 4.month, :format => :only_month %></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now - 3.month, :format => :only_month %></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now - 2.month, :format => :only_month %></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now - 1.month, :format => :only_month %></th>
-    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l Time.now, :format => :only_month %></th>
+    <th ALIGN="right"><%= link_to "<<", list_path(:data => (data - 6.month)) %> <%=  link_to ">>", list_path(:data => (data + 6.month)) %></th>
+    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l data - 5.month, :format => :only_month %></th>
+    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l data - 4.month, :format => :only_month %></th>
+    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l data - 3.month, :format => :only_month %></th>
+    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l data - 2.month, :format => :only_month %></th>
+    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l data - 1.month, :format => :only_month %></th>
+    <th ALIGN="right">&nbsp;&nbsp;&nbsp;<%= l data, :format => :only_month %></th>
   </tr>  
   <% for cliente in @clientes %>
     <tr>
       <td><%= cliente.nome + ' ' %></td>
-      <td><%= link_to image_tag("paid.png"), cliente_pagamentos_path(cliente)%></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 7.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 6.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 5.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 4.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 3.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 2.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now - 1.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, Time.now), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, data - 5.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, data - 4.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, data - 3.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, data - 2.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, data - 1.month), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      <td ALIGN="right"><%= number_to_currency Pagamento.total(current_user.id, cliente.id, data), :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
     </tr>
   <% end %>
 </table>
-<p><%= link_to "Ver Clientes", clientes_path %> |
-  <%= link_to "Pagamentos por Dia", '/search' %> </p>
+
+
+<br />
+<p><%= link_to "Voltar", clientes_path %> |
+  <%= link_to "Pagamentos por Dia", search_path %> </p>
