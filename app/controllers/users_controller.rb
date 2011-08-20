@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to clientes_url, :notice => "Obrigado por se cadastrar!"
+      redirect_to root_url, :notice => "Obrigado por se cadastrar!"
     else
       render :action => 'new'
     end
