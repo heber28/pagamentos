@@ -6,17 +6,17 @@
   </strong>
 </p>
 <table>
-  <% @cliente.pagamentos.each do |pagamento| %>
+  <% @pagamentos.each do |pagamento| %>
     <tr>
       <td><%= l pagamento.data %>&nbsp;&nbsp;</td>
       <td ALIGN="right"><%= number_to_currency pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %>&nbsp;</td>
       <td>
-        <%= link_to image_tag("edit.png"), cliente_pagamento_path(@cliente, pagamento) %>
+        <%= link_to image_tag("view.png"), cliente_pagamento_path(@cliente, pagamento) %>
         <%= link_to image_tag("delete.png"), [@cliente, pagamento], :confirm => 'Tem certeza?', :method => :delete %>
       </td>
     </tr>
   <% end %>
 </table>
-<br />
-<%= link_to 'Novo Pagamento', new_cliente_pagamento_path(@cliente) %> |
-<%= link_to 'Clientes', clientes_path %>
+<p><%= will_paginate @pagamentos, :previous_label => "Anterior", :next_label => "Pr&oacute;ximo" %></p>
+<p><%= link_to 'Novo Pagamento', new_cliente_pagamento_path(@cliente) %> |
+<%= link_to 'Voltar', clientes_path %></p>

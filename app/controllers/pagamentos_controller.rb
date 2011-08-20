@@ -4,7 +4,8 @@ class PagamentosController < ApplicationController
   layout 'application', :except => :receipt
   def index
     @cliente = Cliente.find(params[:cliente_id])
-    @pagamentos = @cliente.pagamentos.all    
+    #@pagamentos = @cliente.pagamentos.all
+    @pagamentos = @cliente.pagamentos.paginate :page => params[:page], :order => 'data desc, created_at desc', :per_page => 10
 
     respond_to do |format|
       format.html # index.html.erb

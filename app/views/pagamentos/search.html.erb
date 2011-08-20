@@ -7,14 +7,17 @@
   </p>
 <% end %>
 
-<table>
-  <% @pagamentos.each do |pagamento| %>
-    <tr>
-      <td><%= pagamento.cliente.nome %>&nbsp;</td>
-      <td><%= l pagamento.data %>&nbsp;&nbsp;&nbsp;</td>
-      <td ALIGN="right"><%= number_to_currency pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
-    </tr>
-  <% end %>
-</table>
-<br />
+
+<% unless @pagamentos.nil? %>
+  <table>
+    <% @pagamentos.each do |pagamento| %>
+      <tr>
+        <td><%= pagamento.cliente.nome %>&nbsp;</td>
+        <td><%= l pagamento.data %>&nbsp;&nbsp;&nbsp;</td>
+        <td ALIGN="right"><%= number_to_currency pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
+      </tr>
+    <% end %>
+  </table>
+  <br />
+<% end %>
 <%= link_to "Voltar", list_path %>

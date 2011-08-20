@@ -5,11 +5,18 @@ class Cliente < ActiveRecord::Base
   validates :nome, :presence => true
   attr_accessible :nome, :endereco, :telefone, :celular
 
-  def self.search(search, user_id)
+  def self.search(search, user_id, page)
     if search
-      find(:all, :conditions => ['user_id = ? and nome LIKE ?', user_id, "%#{search}%"])
+      paginate :per_page => 10, :page => page,
+               :conditions => ['user_id = ? and nome LIKE ?', user_id, "%#{search}%"]
     else
-      find(:all, :conditions => ['user_id = ?', user_id])
+      paginate :per_page => 10, :page => page,
+               :conditions => ['user_id = ?', user_id]
     end
+  end
+
+  def self.list(user_id, page)
+    paginate :per_page => 10, :page => page,
+             :conditions => ['user_id = ?', user_id]  
   end
 end

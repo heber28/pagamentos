@@ -1,6 +1,5 @@
 class Pagamento < ActiveRecord::Base
   attr_accessible :data, :valor, :total
-  default_scope :order => 'data'
   belongs_to :cliente
   belongs_to :user
   validates :data, :valor, :presence => true

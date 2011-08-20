@@ -1,6 +1,6 @@
 class ClientesController < ApplicationController
   def index
-    @clientes = Cliente.search(params[:search], current_user.id)
+    @clientes = Cliente.search(params[:search], current_user.id, params[:page])
   end
 
   def show
@@ -42,7 +42,7 @@ class ClientesController < ApplicationController
   end
 
   def list
-    @clientes = Cliente.search('', current_user.id)
+    @clientes = Cliente.list(current_user.id, params[:page])
     if params[:data].nil?
       @data = Time.now
     else

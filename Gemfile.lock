@@ -73,6 +73,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    will_paginate (3.0.0)
 
 PLATFORMS
   ruby
@@ -84,3 +85,4 @@ DEPENDENCIES
   nifty-generators
   rails (= 3.0.9)
   sqlite3
+  will_paginate (>= 3.0.pre)

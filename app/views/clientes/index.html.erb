@@ -15,5 +15,5 @@
     </tr>    
   <% end %>
 </table>
-
+<p><%= will_paginate @clientes, :previous_label => "Anterior", :next_label => "Pr&oacute;ximo" %>
 <p><%= link_to "Novo Cliente", new_cliente_path %> | <%= link_to "Pagamentos", list_path %> </p>
