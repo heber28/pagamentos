@@ -12,8 +12,8 @@
   <table>
     <% @pagamentos.each do |pagamento| %>
       <tr>
-        <td><%= pagamento.cliente.nome %>&nbsp;</td>
-        <td><%= l pagamento.data %>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= pagamento.cliente.nome %>&nbsp;&nbsp</td>
+        <td><%= l pagamento.data %>&nbsp;&nbsp;</td>
         <td ALIGN="right"><%= number_to_currency pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %></td>
       </tr>
     <% end %>

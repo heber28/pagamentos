@@ -61,7 +61,7 @@
   time:
     formats:
       default: "%A, %d de %B de %Y, %H:%M h"
-      short: "%d/%m, %H:%M h"
+      short: "%d/%m/%Y, %H:%M h"
       long: "%A, %d de %B de %Y, %H:%M h"
       only_month: "%b %y"
     am: ''

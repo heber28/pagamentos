@@ -9,7 +9,7 @@
 
 <p>
   <strong>Valor:</strong>
-  <%= number_to_currency @pagamento.valor %>
+  <%= number_to_currency @pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "" %>
 </p>
 
 <p>

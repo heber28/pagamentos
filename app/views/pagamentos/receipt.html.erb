@@ -11,11 +11,11 @@
     Recebemos de <%= @pagamento.cliente.nome %> <br />
     O valor de <%= number_to_currency @pagamento.valor, :format => "%u %n", :separator => ",", :delimiter => ".", :unit => "R$ " %> <br />
     referente ao m&ecirc;s de <%= @pagamento.data.month %>/<%= @pagamento.data.year %> <br/>
-    em <%= l @pagamento.created_at %> <br />
+    em <%= l @pagamento.created_at, :format => :short %> <br />
     <br />
     <br />
     <br />
-    Assinatura: <br />
+    Assinatura <br />
     <br />
     <br />
     <br />    
