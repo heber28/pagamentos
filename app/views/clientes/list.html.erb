@@ -1,4 +1,4 @@
-<% title "Pagamentos"%>
+<% title "Listagem"%>
 <% data = @data.to_datetime %>
 <table>
   <tr>
@@ -22,7 +22,5 @@
     </tr>
   <% end %>
 </table>
-<p><%= will_paginate @clientes, :previous_label => "Anterior", :next_label => "Pr&oacute;ximo" %>
-
-<br />
-<p><%= link_to "Pagamentos por Dia", search_path %> | <%= link_to "Voltar", clientes_path %> </p>
+<p><%= will_paginate @clientes, :previous_label => "Anterior", :next_label => "Pr&oacute;ximo" %></p>
+<p><%= link_to "Voltar", clientes_path %></p>
