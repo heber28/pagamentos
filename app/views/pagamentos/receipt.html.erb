@@ -1,9 +1,21 @@
 <html>
   <head>
+    <%= stylesheet_link_tag "receipt" %>
     <title>Recibo</title>
+    <script type="text/javascript">
+      function printpage()
+      {
+        window.print()
+      }
+    </script>
   </head>
   <body>
+    <script type="text/javascript" >
+      window.onload=printpage;
+    </script> 
     <br />    
+    <br />
+    <br />
     <br />
     Recibo
     <br />
