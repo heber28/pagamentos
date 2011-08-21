@@ -8,8 +8,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to root_url, :notice => "Obrigado por se cadastrar!"
+      #session[:user_id] = @user.id
+      cookies[:auth_token] = @user.auth_token
+      redirect_to clientes_url, :notice => "Obrigado por se cadastrar!"
     else
       render :action => 'new'
     end

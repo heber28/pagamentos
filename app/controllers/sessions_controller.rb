@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   before_filter :login_required, :except => [:new, :create]
   
   def new
+    if current_user
+      redirect_to clientes_url
+    end
   end
 
   def create
