@@ -55,7 +55,7 @@ App::Application.configure do
     :address    => "smtps.sercomtel.com.br",
     :port       => 587,
     :user_name  => "railsapp@sercomtel.com.br",
-    :password   => "1123456",
+    :password   => "123",
     :enable_starttls_auto => true
   }
 
